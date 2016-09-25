@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Game Of Thrones Only</string>
+    <string name="action_About_Us">About Us</string>
+
+    <string name="please_wait">Please wait…</string>
+
+    <string name="dlg_error">Error</string>
+    <string name="dlg_ok">OK</string>
+    <string name="dlg_cancel">Cancel</string>
+    <string name="dlg_loading">Loading…</string>
+    <string name="dlg_choose_image_from">Select photo from…</string>
+    <string name="dlg_retry">Retry</string>
+    <string name="splash_create_session_error">Errors</string>
+
+
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="no_internet_connection">No internet connection. Internet is required to run this app.</string>
+</resources>
