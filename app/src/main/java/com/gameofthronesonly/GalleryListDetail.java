@@ -1,16 +1,14 @@
 package com.gameofthronesonly;
 
-import android.app.NotificationManager;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.StringRes;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.androidquery.callback.BitmapAjaxCallback;
 import com.gameofthronesonly.adapter.GalleryListDetailAdapter;
@@ -26,9 +24,6 @@ import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.request.QBPagedRequestBuilder;
 
 import java.io.BufferedOutputStream;
-import android.support.v4.app.NotificationCompat.Builder;
-import android.widget.Toast;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

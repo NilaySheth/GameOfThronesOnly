@@ -30,6 +30,9 @@ import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.request.QBPagedRequestBuilder;
 import com.quickblox.users.model.QBUser;
+import com.startapp.android.publish.StartAppAd;
+import com.startapp.android.publish.StartAppSDK;
+import com.startapp.android.publish.splash.SplashConfig;
 
 import java.util.ArrayList;
 
@@ -40,9 +43,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static int current_page = 1;
     private GalleryAdapter galleryAdapter;
 
+    /** StartAppAd object declaration */
+    private StartAppAd startAppAd = new StartAppAd(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        StartAppSDK.init(this, "206077316", true); //TODO: Replace with your Application ID
+
+        /** Create Splash Ad **/
+        StartAppAd.showSplash(this, savedInstanceState,
+                new SplashConfig()
+                        .setTheme(SplashConfig.Theme.GLOOMY)
+                        .setLogo(R.mipmap.ic_launcher)
+                        .setAppName("Game Of Thrones Only")
+        );
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -189,5 +206,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onLowMemory(){
         BitmapAjaxCallback.clearCache();
+    }
+
+    /**
+     * Part of the activity's life cycle, StartAppAd should be integrated here.
+     */
+    @Override
+    public void onResume() {
+        super.onResume();
+        startAppAd.onResume();
+    }
+
+    /**
+     * Part of the activity's life cycle, StartAppAd should be integrated here
+     * for the home button exit ad integration.
+     */
+    @Override
+    public void onPause() {
+        super.onPause();
+        startAppAd.onPause();
+    }
+
+    /**
+     * Part of the activity's life cycle, StartAppAd should be integrated here
+     * for the back button exit ad integration.
+     */
+    @Override
+    public void onBackPressed() {
+        startAppAd.onBackPressed();
+        super.onBackPressed();
     }
 }

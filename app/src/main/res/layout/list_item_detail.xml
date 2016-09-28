@@ -17,6 +17,7 @@
         android:scaleType="fitCenter" />
 
     <LinearLayout
+        android:id="@+id/actionbarView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#000000"
@@ -40,4 +41,12 @@
             android:alpha="1"/>
 
     </LinearLayout>
+
+    <com.startapp.android.publish.banner.Banner
+        android:id="@+id/startAppBanner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/actionbarView"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

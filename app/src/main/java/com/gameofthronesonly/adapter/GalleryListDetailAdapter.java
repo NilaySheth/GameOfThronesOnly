@@ -1,19 +1,14 @@
 package com.gameofthronesonly.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -21,20 +16,10 @@ import com.androidquery.callback.BitmapAjaxCallback;
 import com.androidquery.util.AQUtility;
 import com.gameofthronesonly.R;
 import com.gameofthronesonly.constants.DownloadMoreListener;
-import com.quickblox.content.QBContent;
 import com.quickblox.content.model.QBFile;
-import com.quickblox.core.Consts;
-import com.quickblox.core.QBEntityCallback;
-import com.quickblox.core.QBProgressCallback;
-import com.quickblox.core.exception.QBResponseException;
+import com.startapp.android.publish.banner.Banner;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Created by NilayS on 8/13/2016.
@@ -87,10 +72,17 @@ public class GalleryListDetailAdapter extends BaseAdapter {
             holder.image = (ImageView) convertView.findViewById(R.id.image);
             holder.download = (ImageView) convertView.findViewById(R.id.download);
             holder.share = (ImageView) convertView.findViewById(R.id.share);
+            holder.startAppBanner1 = (Banner) convertView.findViewById(R.id.startAppBanner1);
 
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
+        }
+
+        if(position%5 == 0){
+            holder.startAppBanner1.setVisibility(View.VISIBLE);
+        }else{
+            holder.startAppBanner1.setVisibility(View.GONE);
         }
 
         if (aq.getCachedImage(getUrl(qbFileSparseArray.valueAt(position))) != null) {
@@ -156,5 +148,6 @@ public class GalleryListDetailAdapter extends BaseAdapter {
 
     private static class ViewHolder {
         private ImageView imageView, image, share, download;
+        private Banner startAppBanner1;
     }
 }

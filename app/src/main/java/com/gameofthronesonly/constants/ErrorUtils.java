@@ -10,7 +10,6 @@ import android.view.View;
 
 import com.gameofthronesonly.CoreApp;
 import com.gameofthronesonly.R;
-import com.quickblox.core.exception.QBResponseException;
 
 import java.util.List;
 
